@@ -36,7 +36,6 @@ class DecryptComponent extends SearchComponent with SolrCoreAware {
   override def prepare(rb: ResponseBuilder): Unit = { /* NOOP */ }
 
   override def process(rb: ResponseBuilder): Unit = {
-    println("in process...")
     val params = rb.req.getParams
     val dfl = if (params.get("fl").isEmpty || params.get("fl") == "*") 
       defaultFieldList

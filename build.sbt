@@ -17,5 +17,7 @@ libraryDependencies ++= Seq(
   "org.mongodb" %% "casbah" % "2.3.0",
   "com.novocode" % "junit-interface" % "0.8" % "test",
   "com.typesafe.akka" % "akka-actor" % "2.0",
-  "play" % "play_2.9.1" % "2.0.4"
+  "play" % "play_2.9.1" % "2.0.4",
+  "com.twitter" % "scalding_2.9.2" % "0.7.3",
+  "org.apache.mahout" % "mahout-core" % "0.7"
 )

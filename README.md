@@ -1,7 +1,7 @@
 solr4-extras
 ============
 
-Random solr4 customizations
+Random solr4 customizations (in Scala).
 
 Secure - search "encrypted" data collections
 --------------------------------------------
@@ -21,5 +21,7 @@ More info on my [Blog Post](http://sujitpal.blogspot.com/2012/12/searching-encry
 7. Start Solr4 (java -jar start.jar)
 8. Download and expand the Enron dataset and update conf/secure/secure.properties to point to it.
 9. Run "sbt run" to run the indexer and populate the index and MongoDB tables.
-10. You should now see results from queries to the custom /secure_select service. Example URL: http://localhost:8983/solr/collection1/secure_select?q=body:%22hedge%20fund%22&fq=from:kaye.ellis@enron.com&email=kaye.ellis@enron.com
+10. Create index on the email collection:
+    db.emails.ensureIndex({"message_id": 1})
+11. You should now see results from queries to the custom /secure_select service. Example URL: http://localhost:8983/solr/collection1/secure_select?q=body:%22hedge%20fund%22&fq=from:kaye.ellis@enron.com&email=kaye.ellis@enron.com
 
