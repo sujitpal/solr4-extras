@@ -25,3 +25,7 @@ More info on my [Blog Post](http://sujitpal.blogspot.com/2012/12/searching-encry
     db.emails.ensureIndex({"message_id": 1})
 11. You should now see results from queries to the custom /secure_select service. Example URL: http://localhost:8983/solr/collection1/secure_select?q=body:%22hedge%20fund%22&fq=from:kaye.ellis@enron.com&email=kaye.ellis@enron.com
 
+FuncQuery
+---------
+Contains SolrJ code to write random score values and a title to a Solr instance so these can be used in function queries. No front end code. More info on my [Blog Post](http://sujitpal.blogspot.com/2013/03/solr-custom-ranking-with-function.html).
+
