@@ -10,13 +10,14 @@ scalaVersion := "2.9.2"
 
 resolvers ++= Seq(
   "Sonatype Nexus Releases" at "https://oss.sonatype.org/content/repositories/releases",
+  "Maven Restlet" at "http://maven.restlet.org",
   "Sonatype Scala Tools" at "https://oss.sonatype.org/content/groups/scala-tools/",
   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/repo"
 )
 
 libraryDependencies ++= Seq(
-  "org.apache.solr" % "solr-core" % "4.1.0",
-  "org.apache.solr" % "solr-solrj" % "4.1.0",
+  "org.apache.solr" % "solr-core" % "4.3.0",
+  "org.apache.solr" % "solr-solrj" % "4.3.0",
   "org.bouncycastle" % "bcprov-jdk16" % "1.45",
   "org.mongodb" %% "casbah" % "2.3.0",
   "com.novocode" % "junit-interface" % "0.8" % "test",
