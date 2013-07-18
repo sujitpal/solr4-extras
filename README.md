@@ -38,15 +38,11 @@ Payload implementation for modeling concepts and their scores as payload fields,
 
 1. Build JAR using sbt package.
 2. Copy JAR into lib, along with scala-compiler.jar and scala-library.jar.
-3. Make following modifications to files in conf:
-schema.xml:
-
+3. Make following modifications to conf/schema.xml:
     <field name="cscores" type="payloads" indexed="true" stored="true"/>
     <similarity
       class="com.mycompany.solr4extras.payloads.MyCompanySimilarityWrapper"/>
-
-solrconfig.xml:
-
+4. Make following modifications to conf/solrconfig.xml:
     <queryParser name="payloadQueryParser"
       class="com.mycompany.solr4extras.payloads.PayloadQParserPlugin"/>
     <requestHandler name="/cselect" class="solr.SearchHandler">
