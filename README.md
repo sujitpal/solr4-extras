@@ -34,11 +34,11 @@ Payloads
 
 Payload implementation for modeling concepts and their scores as payload fields, with Similarity, QParser for Payloads. Needs following configuration:
 
-#### Setup Instructions ####
+### Setup Instructions ###
 
-1) Build JAR using sbt package.
-2) Copy JAR into lib, along with scala-compiler.jar and scala-library.jar.
-3) Make following modifications to files in conf:
+1. Build JAR using sbt package.
+2. Copy JAR into lib, along with scala-compiler.jar and scala-library.jar.
+3. Make following modifications to files in conf:
 schema.xml:
 
     <field name="cscores" type="payloads" indexed="true" stored="true"/>
@@ -54,4 +54,6 @@ solrconfig.xml:
         <str name="defType">payloadQueryParser</str>
       </lst>
     </requestHandler>
+
+More info on my [Blog Post](http://sujitpal.blogspot.com/2013/07/porting-payloads-to-solr4.html).
 
