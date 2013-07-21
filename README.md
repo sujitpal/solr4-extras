@@ -25,12 +25,13 @@ More info on my [Blog Post](http://sujitpal.blogspot.com/2012/12/searching-encry
     db.emails.ensureIndex({"message_id": 1})
 11. You should now see results from queries to the custom /secure_select service. Example URL: http://localhost:8983/solr/collection1/secure_select?q=body:%22hedge%20fund%22&fq=from:kaye.ellis@enron.com&email=kaye.ellis@enron.com
 
-FuncQuery
----------
-Contains SolrJ code to write random score values and a title to a Solr instance so these can be used in function queries. No front end code. More info on my [Blog Post](http://sujitpal.blogspot.com/2013/03/solr-custom-ranking-with-function.html).
+FuncQuery - function queries to influence ranking using demographics
+--------------------------------------------------------------------
 
-Payloads
-========
+SolrJ code to write random score values and a title to a Solr instance so these can be used in function queries. No front end code (although I guess I could have written a JUnit test to demonstrate the function queries in action), and no configuration changes. More info on my [Blog Post](http://sujitpal.blogspot.com/2013/03/solr-custom-ranking-with-function.html).
+
+Payloads - a Solr4 port for concept maps as payloads
+----------------------------------------------------
 
 Payload implementation for modeling concepts and their scores as payload fields, with Similarity, QParser for Payloads. Needs following configuration:
 
@@ -38,21 +39,34 @@ Payload implementation for modeling concepts and their scores as payload fields,
 
 1. Build JAR using sbt package.
 2. Copy JAR into lib, along with scala-compiler.jar and scala-library.jar.
-3. Make following modifications to conf/schema.xml and conf/solrconfig.xml:
+3. Make following modifications to conf/schema.xml and conf/solrconfig.xml.
 
-    <!-- schema.xml -->
-    <field name="cscores" type="payloads" indexed="true" stored="true"/>
-    <similarity
-      class="com.mycompany.solr4extras.payloads.MyCompanySimilarityWrapper"/>
+schema.xml:
+    
+	<field name="cscores" type="payloads" indexed="true" stored="true"/>
+	<similarity
+	  class="com.mycompany.solr4extras.payloads.MyCompanySimilarityWrapper"/>
 
-    <!-- solrconfig.xml -->
-    <queryParser name="payloadQueryParser"
-      class="com.mycompany.solr4extras.payloads.PayloadQParserPlugin"/>
-    <requestHandler name="/cselect" class="solr.SearchHandler">
-      <lst name="defaults">
-        <str name="defType">payloadQueryParser</str>
-      </lst>
-    </requestHandler>
+solrconfig.xml:
+
+	<queryParser name="payloadQueryParser"
+	  class="com.mycompany.solr4extras.payloads.PayloadQParserPlugin"/>
+	<requestHandler name="/cselect" class="solr.SearchHandler">
+	  <lst name="defaults">
+	    <str name="defType">payloadQueryParser</str>
+	  </lst>
+	</requestHandler>
 
 More info on my [Blog Post](http://sujitpal.blogspot.com/2013/07/porting-payloads-to-solr4.html).
+
+Named Entity Extraction
+-----------------------
+
+Using LingPipe to construct regex based and dictionary based Named Entity Extractors backed by Solr, used for preprocessing query.
+
+Since LingPipe is not open-source, you need to agree to its license and then manually install the lingpipe jar file into the lib directory as shown below.
+
+        cd $PROJECT_ROOT (this directory)
+        mkdir -p lib
+        cp $LINGPIPE_DIST_DIR/lingpipe-*.jar lib
 

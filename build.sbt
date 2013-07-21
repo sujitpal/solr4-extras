@@ -25,7 +25,8 @@ libraryDependencies ++= Seq(
   "play" % "play_2.9.1" % "2.0.4",
   "com.twitter" % "scalding_2.9.2" % "0.7.3",
   "org.apache.mahout" % "mahout-core" % "0.7",
-  "org.jboss.netty" % "netty" % "3.2.9.Final"
+  "org.jboss.netty" % "netty" % "3.2.9.Final",
+  "mysql" % "mysql-connector-java" % "5.1.12"
 )
 
 // assembly settings
