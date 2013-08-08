@@ -70,3 +70,39 @@ Since LingPipe is not open-source, you need to agree to its license and then man
         mkdir -p lib
         cp $LINGPIPE_DIST_DIR/lingpipe-*.jar lib
 
+The following fields need to be defined in schema.xml for the SolrMapDictionary object:
+
+	<field name="nercat" type="string" indexed="true" stored="true" multiValued="true"/>
+	<field name="nerval" type="text_general" indexed="true" stored="true"/>
+
+More info on my [Blog Post](http://sujitpal.blogspot.com/2013/07/dictionary-backed-named-entity.html).
+
+Concept Embedding - Mixed Concept + Text queries
+------------------------------------------------
+
+Code written against Solr4 to embed concept IDs like synonyms within text. Custom TokenFilter and Analyzer to support this work, plus configuration and JUnit tests. Configuration consists of the following field definitions and the following fieldType definition:
+
+    <!-- for concept position -->
+    <field name="itemtitle" type="text_en" indexed="true" stored="true"/>
+    <field name="itemtitle_cp" type="text_cp" indexed="true" stored="true"/>
+
+    <!-- text_cp field type definition -->
+    <fieldType name="text_cp" class="solr.TextField">
+      <analyzer type="index"
+        class="com.mycompany.solr4extras.cpos.ConceptPositionAnalyzer"/>>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory"
+                ignoreCase="true"
+                words="lang/stopwords_en.txt"
+                enablePositionIncrements="true"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.EnglishPossessiveFilterFactory"/>
+        <filter class="solr.KeywordMarkerFilterFactory" 
+                protected="protwords.txt"/>
+        <filter class="solr.PorterStemFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+More info on my [Blog Post](TBD).
+
