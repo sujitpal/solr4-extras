@@ -59,8 +59,8 @@ solrconfig.xml:
 
 More info on my [Blog Post](http://sujitpal.blogspot.com/2013/07/porting-payloads-to-solr4.html).
 
-Named Entity Extraction
------------------------
+NER - Named Entity Extraction with LingPipe
+--------------------------------------------
 
 Using LingPipe to construct regex based and dictionary based Named Entity Extractors backed by Solr, used for preprocessing query.
 
@@ -104,5 +104,5 @@ Code written against Solr4 to embed concept IDs like synonyms within text. Custo
       </analyzer>
     </fieldType>
 
-More info on my [Blog Post](TBD).
+More info on my [Blog Post](http://sujitpal.blogspot.com/2013/08/embedding-concepts-in-text-for-smarter.html).
 
