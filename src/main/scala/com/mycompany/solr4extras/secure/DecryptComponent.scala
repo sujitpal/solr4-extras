@@ -64,7 +64,7 @@ class DecryptComponent extends SearchComponent with SolrCoreAware {
           fieldmap.keys.toList.map(fn => fieldmap(fn) match {
               case value: String =>
                 doc.addField(fn, value.asInstanceOf[String])
-              case value: List[String] => 
+              case value: List[_] => 
                 value.asInstanceOf[List[String]].map(v =>
                   doc.addField(fn, v))
           })

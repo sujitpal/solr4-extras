@@ -38,12 +38,12 @@ class DocVector(args: Args) extends Job(args) {
     filter('word) { word: String => (!(word == null || word.isEmpty)) }.
     project('docID, 'num, 'freq).
     map(('docID, 'num, 'freq) -> ('docId, 'pvec)) { 
-      doc: (String, Int, Int) =>
+      doc: (String, Int, Int) => {
         val pvec = new SequentialAccessSparseVector(
           args("vocabsize").toInt)
         pvec.set(doc._2, doc._3)
       (doc._1, new VectorWritable(pvec))
-    }.
+    }}.
     groupBy('docId) { 
       group => group.reduce('pvec -> 'vec) {
         (left: VectorWritable, right: VectorWritable) => 
@@ -105,7 +105,7 @@ class WekaClusterDumper {
           if (scores(i).toDouble > 0.0D) {
             if (clusterScores(i) == null)
               clusterScores(i) = new ListBuffer[(Int,Double)]
-            clusterScores(i) += Tuple(idx, scores(i).toDouble)
+            clusterScores(i) += ((idx, scores(i).toDouble))
         })
     })
     // sort each clusterScore by score descending and get the
@@ -114,7 +114,7 @@ class WekaClusterDumper {
     var i = 0
     clusterScores.foreach(clusterScore => {
       writer.println("Cluster #" + i)
-      clusterScore.toList.sort(_._2 > _._2).
+      clusterScore.toList.sortWith(_._2 > _._2).
         slice(0, topN).map(tuple => {
           val word = dict(tuple._1)
           writer.println("  " + word + " (" + tuple._2 + ")")

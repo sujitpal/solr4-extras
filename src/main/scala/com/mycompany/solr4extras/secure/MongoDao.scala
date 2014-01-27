@@ -121,7 +121,7 @@ class MongoDao(host: String, port: Int, db: String) {
         decrypt(Hex.decodeHex(value.asInstanceOf[String].toCharArray), 
           key, iv)
       case value: BasicDBList =>
-        value.asInstanceOf[BasicDBList].elements.toList.
+        value.asInstanceOf[BasicDBList].toList.
           map(v => decrypt(Hex.decodeHex(v.asInstanceOf[String].toCharArray), 
           key, iv))
       case _ =>
