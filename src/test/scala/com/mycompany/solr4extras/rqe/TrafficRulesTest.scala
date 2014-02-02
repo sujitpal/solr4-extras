@@ -40,25 +40,25 @@ class TrafficRulesTest {
   }
     
   @Test
-  def testYellowInBoston(): Unit = {
+  def testGreenInBoston(): Unit = {
     val resp = runTest(Traffic("green", 0))
     Assert.assertEquals("proceed", resp.action)
   }
   
   @Test
-  def testYellowInNewYork(): Unit = {
+  def testGreenInNewYork(): Unit = {
     val resp = runTest(Traffic("green", 1))
     Assert.assertEquals("proceed", resp.action)
   }
 
   @Test
-  def testGreenInBoston(): Unit = {
+  def testYellowInBoston(): Unit = {
     val resp = runTest(Traffic("yellow", 0))
     Assert.assertEquals("accelerate", resp.action)
   }
   
   @Test
-  def testGreenInNewYork(): Unit = {
+  def testYellowInNewYork(): Unit = {
     val resp = runTest(Traffic("yellow", 1))
     Assert.assertEquals("stop", resp.action)
   }
