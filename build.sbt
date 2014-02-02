@@ -33,7 +33,9 @@ libraryDependencies ++= Seq(
   "org.jboss.netty" % "netty" % "3.2.9.Final",
   "mysql" % "mysql-connector-java" % "5.1.12",
   "net.debasishg" % "redisclient_2.10" % "2.11",
-  "org.drools" % "drools-core" % "6.0.1.Final"
+  "org.drools" % "drools-core" % "6.0.1.Final",
+  "org.drools" % "drools-compiler" % "6.0.1.Final",
+  "com.sun.xml.bind" % "jaxb-xjc" % "2.2.4-1"
 )
 
 // assembly settings
