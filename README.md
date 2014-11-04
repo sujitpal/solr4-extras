@@ -105,14 +105,14 @@ Near-Duplicate Detection
 
 Uses Shingles and MinHashing to implement near-duplicate detection on the [Restaurant Dataset](http://www.cs.utexas.edu/users/ml/riddle/data.html). No customization of Solr required, everything is done in client. Following new fields need to be declared to use this application:
 
-   <field name="content" type="text_general" indexed="false" stored="true" 
-      multiValued="false"/>
-   <field name="md5_hash" type="string" indexed="true" stored="true"/>
-   <field name="num_words" type="int" indexed="true" stored="true" />
-   <field name="first_word" type="string" indexed="true" stored="true"/>
-   <field name="content_ng" type="string" indexed="true" stored="true" 
-       multiValued="true"/>
-   <field name="content_sg" type="string" indexed="true" stored="true" 
-       multiValued="true"/>
+	<field name="content" type="text_general" indexed="false" stored="true" 
+	  multiValued="false"/>
+	<field name="md5_hash" type="string" indexed="true" stored="true"/>
+	<field name="num_words" type="int" indexed="true" stored="true" />
+	<field name="first_word" type="string" indexed="true" stored="true"/>
+	<field name="content_ng" type="string" indexed="true" stored="true" 
+	  multiValued="true"/>
+	<field name="content_sg" type="string" indexed="true" stored="true" 
+	  multiValued="true"/>
 
 More info on my [Blog Post](http://sujitpal.blogspot.com/2014/11/near-duplicate-detection-using.html).
