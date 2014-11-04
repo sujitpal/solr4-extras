@@ -2,10 +2,10 @@ package com.mycompany.solr4extras.payloads
 
 import org.apache.lucene.analysis.payloads.PayloadHelper
 import org.apache.lucene.index.FieldInvertState
-import org.apache.lucene.search.similarities.DefaultSimilarity
+import org.apache.lucene.search.similarities.TFIDFSimilarity
 import org.apache.lucene.util.BytesRef
 
-class PayloadSimilarity extends DefaultSimilarity {
+class PayloadSimilarity extends TFIDFSimilarity {
 
   override def coord(overlap: Int, maxOverlap: Int) = 1.0F
   
@@ -25,5 +25,7 @@ class PayloadSimilarity extends DefaultSimilarity {
   
   override def idf(docFreq: Long, numDocs: Long) = 1.0F
 
-  override def decodeNormValue(b: Byte) = 1.0F
+  override def decodeNormValue(l: Long) = 1.0F
+
+  override def encodeNormValue(f: Float) = 1L
 }

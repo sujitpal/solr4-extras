@@ -16,12 +16,13 @@ resolvers ++= Seq(
   "Sonatype Scala Tools" at "https://oss.sonatype.org/content/groups/scala-tools/",
   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/repo",
   "Maven.org" at "http://repo2.maven.org/maven2",
-  "Conjars.org" at "http://conjars.org/repo"
+  "Conjars.org" at "http://conjars.org/repo",
+  "Clojars.org" at "http://clojars.org/repo"
 )
 
 libraryDependencies ++= Seq(
-  "org.apache.solr" % "solr-core" % "4.3.0",
-  "org.apache.solr" % "solr-solrj" % "4.3.0",
+  "org.apache.solr" % "solr-core" % "4.10.1",
+  "org.apache.solr" % "solr-solrj" % "4.10.1",
   "org.bouncycastle" % "bcprov-jdk16" % "1.45",
   "org.mongodb" %% "casbah" % "2.5.0",
   "com.novocode" % "junit-interface" % "0.8" % "test",
@@ -35,7 +36,9 @@ libraryDependencies ++= Seq(
   "net.debasishg" % "redisclient_2.10" % "2.11",
   "org.drools" % "drools-core" % "6.0.1.Final",
   "org.drools" % "drools-compiler" % "6.0.1.Final",
-  "com.sun.xml.bind" % "jaxb-xjc" % "2.2.4-1"
+  "com.aliasi" % "lingpipe" % "4.0.1",
+  "com.sun.xml.bind" % "jaxb-xjc" % "2.2.4-1",
+  "org.neo4j" % "neo4j" % "1.9.6"
 )
 
 // assembly settings
