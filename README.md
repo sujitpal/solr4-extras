@@ -64,12 +64,6 @@ NER - Named Entity Extraction with LingPipe
 
 Using LingPipe to construct regex based and dictionary based Named Entity Extractors backed by Solr, used for preprocessing query.
 
-Since LingPipe is not open-source, you need to agree to its license and then manually install the lingpipe jar file into the lib directory as shown below.
-
-        cd $PROJECT_ROOT (this directory)
-        mkdir -p lib
-        cp $LINGPIPE_DIST_DIR/lingpipe-*.jar lib
-
 The following fields need to be defined in schema.xml for the SolrMapDictionary object:
 
 	<field name="nercat" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -106,3 +100,19 @@ Code written against Solr4 to embed concept IDs like synonyms within text. Custo
 
 More info on my [Blog Post](http://sujitpal.blogspot.com/2013/08/embedding-concepts-in-text-for-smarter.html).
 
+Near-Duplicate Detection
+------------------------
+
+Uses Shingles and MinHashing to implement near-duplicate detection on the [Restaurant Dataset](http://www.cs.utexas.edu/users/ml/riddle/data.html). No customization of Solr required, everything is done in client. Following new fields need to be declared to use this application:
+
+   <field name="content" type="text_general" indexed="false" stored="true" 
+      multiValued="false"/>
+   <field name="md5_hash" type="string" indexed="true" stored="true"/>
+   <field name="num_words" type="int" indexed="true" stored="true" />
+   <field name="first_word" type="string" indexed="true" stored="true"/>
+   <field name="content_ng" type="string" indexed="true" stored="true" 
+       multiValued="true"/>
+   <field name="content_sg" type="string" indexed="true" stored="true" 
+       multiValued="true"/>
+
+More info on my [Blog Post](http://sujitpal.blogspot.com/2014/11/near-duplicate-detection-using.html).
