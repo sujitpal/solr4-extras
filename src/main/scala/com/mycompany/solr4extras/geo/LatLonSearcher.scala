@@ -46,13 +46,13 @@ class LatLonSearcher {
     val dist = if (sdoc.getFieldValue("_dist_") != null) 
       sdoc.getFieldValue("_dist_").asInstanceOf[Double]
       else 0.0D 
-    LatLonDoc(sdoc.getFieldValue("fname_t").asInstanceOf[String],
-      sdoc.getFieldValue("lname_t").asInstanceOf[String],
+    LatLonDoc(sdoc.getFieldValue("firstname_s").asInstanceOf[String],
+      sdoc.getFieldValue("lastname_s").asInstanceOf[String],
       sdoc.getFieldValue("company_t").asInstanceOf[String],
       sdoc.getFieldValue("street_t").asInstanceOf[String],
-      sdoc.getFieldValue("city_t").asInstanceOf[String],
-      sdoc.getFieldValue("state_t").asInstanceOf[String],
-      sdoc.getFieldValue("zip_t").asInstanceOf[String],
+      sdoc.getFieldValue("city_s").asInstanceOf[String],
+      sdoc.getFieldValue("state_s").asInstanceOf[String],
+      sdoc.getFieldValue("zip_s").asInstanceOf[String],
       Point(latlon(0), latlon(1)), dist)
   }
 }
