@@ -38,6 +38,7 @@ libraryDependencies ++= Seq(
   "org.drools" % "drools-compiler" % "6.0.1.Final",
   "com.aliasi" % "lingpipe" % "4.0.1",
   "com.sun.xml.bind" % "jaxb-xjc" % "2.2.4-1",
+  "com.fasterxml.jackson.core" % "jackson-core" % "2.5.1",
   "org.neo4j" % "neo4j" % "1.9.6"
 )
 
