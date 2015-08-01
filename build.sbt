@@ -1,12 +1,8 @@
-import AssemblyKeys._
-
-assemblySettings
-
 name := "solr4-extras"
 
 version := "1.0"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.10.4"
 
 EclipseKeys.withSource := true
 
@@ -27,15 +23,15 @@ libraryDependencies ++= Seq(
   "org.mongodb" %% "casbah" % "2.5.0",
   "com.novocode" % "junit-interface" % "0.8" % "test",
   "com.typesafe.akka" % "akka-actor_2.10" % "2.2.3",
-  "play" % "play_2.10" % "2.1.5",
+  //"play" % "play_2.10" % "2.1.5",
   "com.twitter" % "scalding-core_2.10" % "0.8.11",
   "org.apache.mahout" % "mahout-core" % "0.7",
   "org.apache.hadoop" % "hadoop-core" % "0.20.2",
   "org.jboss.netty" % "netty" % "3.2.9.Final",
   "mysql" % "mysql-connector-java" % "5.1.12",
   "net.debasishg" % "redisclient_2.10" % "2.11",
-  "org.drools" % "drools-core" % "6.0.1.Final",
-  "org.drools" % "drools-compiler" % "6.0.1.Final",
+  //"org.drools" % "drools-core" % "6.0.1.Final",
+  //"org.drools" % "drools-compiler" % "6.0.1.Final",
   "com.aliasi" % "lingpipe" % "4.0.1",
   "com.sun.xml.bind" % "jaxb-xjc" % "2.2.4-1",
   "com.fasterxml.jackson.core" % "jackson-core" % "2.5.1",

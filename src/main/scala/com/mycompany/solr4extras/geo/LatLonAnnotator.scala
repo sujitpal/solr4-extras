@@ -28,8 +28,8 @@ class LatLonAnnotator {
     try {
       val location = root.path("results").get(0)
           .path("geometry").path("location")
-      val lat = location.path("lat").asDouble
-      val lon = location.path("lng").asDouble
+      val lat = location.path("lat").getValueAsDouble
+      val lon = location.path("lng").getValueAsDouble
       (lat, lon)
     } catch {
       case e: Exception => (0.0D, 0.0D)
