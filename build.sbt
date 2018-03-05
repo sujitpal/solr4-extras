@@ -39,7 +39,7 @@ libraryDependencies ++= Seq(
 )
 
 // assembly settings
-test in assembly := {}
+sbt.Keys.test in assembly := {}
 
 mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) => {
     case PathList("javax", "servlet", xs @ _*) => MergeStrategy.first
